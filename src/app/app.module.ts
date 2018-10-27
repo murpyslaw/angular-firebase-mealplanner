@@ -3,20 +3,39 @@ import { BrowserModule } from '@angular/platform-browser';
 import { Route, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { MainOutletComponent } from './components/main-outlet/main-outlet.component';
-import { NavigationModule } from './navigation/navigation.module';
-import { SidebarModule } from './sidebar/sidebar.module';
 import { MainContainerComponent } from './containers/main-container/main-container.component';
 import { MainSidebarContainerComponent } from './containers/main-sidebar-container/main-sidebar-container.component';
+import { MealsModule, ROUTES as MealRoutes } from './meals/meals.module';
+import { NavigationModule } from './navigation/navigation.module';
+import { SidebarModule } from './sidebar/sidebar.module';
 
-export const ROUTES: Route[] = [];
+export const ROUTES: Route[] = [
+  {
+    path: ``,
+    component: MainContainerComponent,
+    children: [
+      {
+        path: ``,
+        component: MainOutletComponent
+      },
+      ...MealRoutes
+    ]
+  }
+];
 
 @NgModule({
-  declarations: [AppComponent, MainOutletComponent, MainContainerComponent, MainSidebarContainerComponent],
+  declarations: [
+    AppComponent,
+    MainOutletComponent,
+    MainContainerComponent,
+    MainSidebarContainerComponent
+  ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(ROUTES),
+    RouterModule.forRoot(ROUTES, { enableTracing: true }),
     SidebarModule,
-    NavigationModule
+    NavigationModule,
+    MealsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
