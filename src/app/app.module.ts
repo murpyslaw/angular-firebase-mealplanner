@@ -8,6 +8,10 @@ import { MainSidebarContainerComponent } from './containers/main-sidebar-contain
 import { MealsModule, ROUTES as MealRoutes } from './meals/meals.module';
 import { NavigationModule } from './navigation/navigation.module';
 import { SidebarModule } from './sidebar/sidebar.module';
+import {
+  ROUTES as WorkoutRoutes,
+  WorkoutsModule
+} from './workouts/workouts.module';
 
 export const ROUTES: Route[] = [
   {
@@ -18,7 +22,8 @@ export const ROUTES: Route[] = [
         path: ``,
         component: MainOutletComponent
       },
-      ...MealRoutes
+      ...MealRoutes,
+      ...WorkoutRoutes
     ]
   }
 ];
@@ -35,7 +40,8 @@ export const ROUTES: Route[] = [
     RouterModule.forRoot(ROUTES, { enableTracing: true }),
     SidebarModule,
     NavigationModule,
-    MealsModule
+    MealsModule,
+    WorkoutsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
