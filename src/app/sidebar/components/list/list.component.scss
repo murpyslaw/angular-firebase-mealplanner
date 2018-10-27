@@ -1,0 +1,13 @@
+@import 'src/app/app-scss-mixins';
+
+:host {
+  @include vertical-flex-container;
+  flex: 1;
+
+  .list {
+    @include vertical-flex-container;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+}

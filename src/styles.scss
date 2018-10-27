@@ -1,0 +1,16 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'src/app/app-scss-mixins';
+
+html {
+  @include vertical-flex-container;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+
+  body {
+    @include vertical-flex-container;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+}

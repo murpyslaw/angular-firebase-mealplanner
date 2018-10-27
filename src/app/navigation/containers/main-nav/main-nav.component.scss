@@ -1,0 +1,6 @@
+@import 'src/app/app-scss-mixins';
+
+:host {
+  @include vertical-flex-container;
+  flex: 1;
+}
